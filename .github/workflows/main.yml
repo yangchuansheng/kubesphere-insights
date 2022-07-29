@@ -33,20 +33,9 @@ jobs:
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +%Y%m%d-%H%M%S)"
-      
-    - name: Start SSH via Ngrok
-      run: curl -sL https://gist.githubusercontent.com/retyui/7115bb6acf151351a143ec8f96a7c561/raw/7099b9db76729dc5761da72aa8525f632d8875c9/debug-github-actions.sh | bash
-      env:
-       # After sign up on the https://ngrok.com/
-       # You can find this token here: https://dashboard.ngrok.com/get-started/setup
-       NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
-
-       # This password you will use when authorizing via SSH 
-       USER_PASS: ${{ secrets.USER_PASS }}
-       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
-    - name: Don't kill instace
-      run: sleep 12h # Prevent to killing instance after failure
+    
+    - name: set env
+      run: echo "GITHUB_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
 
     - name: Contributors
       env:

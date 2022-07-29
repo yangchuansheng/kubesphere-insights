@@ -10,4 +10,4 @@ do
   done
 done
 
-cat ks_all_contributors_source.txt|grep -Ev "\-bot|\[bot\]|^null$"|sort|uniq > ks_all_contributors_$(date +%Y%m%d-%H%M%S).txt
+cat ks_all_contributors_source.txt|grep -Ev "\-bot|\[bot\]|^null$"|sort|uniq > ks_all_contributors_${DATE}.txt

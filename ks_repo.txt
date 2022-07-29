@@ -1,0 +1,14 @@
+kubesphere/kubesphere
+kubesphere/kubekey
+kubesphere/ks-installer
+kubesphere/ks-devops
+kubesphere/website
+kubesphere/devops-agent
+kubesphere/console
+kubesphere/notification-manager
+kubesphere/openelb
+kubesphere/s2ioperator
+kubesphere/helm-charts
+kubesphere/kubeeye
+kubesphere/devops-java-sample
+fluent/fluent-operator

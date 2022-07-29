@@ -35,7 +35,9 @@ jobs:
       run: echo "::set-output name=date::$(date +%Y%m%d-%H%M%S)"
     
     - name: set env
-      run: echo "GITHUB_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV && echo "DATE=${{ steps.date.outputs.date }}" >> $GITHUB_ENV
+      run: |
+        echo "GITHUB_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
+        echo "DATE=${{ steps.date.outputs.date }}" >> $GITHUB_ENV
 
     - name: Contributors
       run: bash ks_all_contributors.sh

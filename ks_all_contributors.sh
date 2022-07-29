@@ -6,7 +6,7 @@ for i in $(cat ks_repo.txt);
 do
   for j in {1..30};
   do
-      curl -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/$i/contributors?per_page=100&page=$j"|jq -r '.[].login'|sort|uniq >> ks_all_contributors_source_$(date +%Y%m%d-%H%M%S).txt
+      curl -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/$i/contributors?per_page=100&page=$j"|jq -r '.[].login'|sort|uniq >> ks_all_contributors_source.txt
   done
 done
 

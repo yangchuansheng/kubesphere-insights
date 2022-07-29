@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -f "$GITHUB_ENV" ] && source $GITHUB_ENV
+
 for i in $(cat ks_repo.txt);
 do
   for j in {1..30};

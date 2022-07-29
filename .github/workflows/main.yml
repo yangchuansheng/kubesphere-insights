@@ -40,7 +40,7 @@ jobs:
     - name: Contributors
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      run: cat ks_all_contributors.sh
+      run: bash ks_all_contributors.sh
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v3

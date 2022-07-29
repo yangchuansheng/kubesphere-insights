@@ -43,5 +43,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ks_all_contributors_${{ steps.date.outputs.date }}.txt
-        path: ./ks_all_contributors_${{ steps.date.outputs.date }}.txt
+        name: ks_all_contributors_${{ steps.date.outputs.date }}
+        path: ./ks_all_contributors_*.txt

@@ -30,7 +30,13 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v3
 
-    - name: Login to GitHub Package Registry
+    - name: Contributors
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: bash ks_all_contributors.sh
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ks_all_contributors_*.txt
+        path: ./

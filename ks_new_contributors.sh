@@ -12,4 +12,4 @@ do
   done
 done
 
-cat ks_new_contributors_source.txt|grep -Ev "\-bot|\[bot\]|^null$"|sort|uniq > ks_new_contributors.txt
+cat ks_new_contributors_source.txt|grep -Ev "\-bot|\[bot\]|^null$"|sort|uniq > ks_new_contributors_${DATE}.txt

@@ -11,10 +11,6 @@ name: KubeSphere Insights all contributors
 # events but only for the master branch
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   schedule:
     - cron: '0 1 * * *'
 

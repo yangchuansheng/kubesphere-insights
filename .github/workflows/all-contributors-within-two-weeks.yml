@@ -1,0 +1,48 @@
+#=================================================
+# https://github.com/yangchuansheng/kubesphere-insights
+# Lisence: MIT
+# Author: Carson Yang
+# Blog: https://icloudnative.io
+#=================================================
+
+name: all contributors within two weeks
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '00 01 * * 4'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v3
+    
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +%Y%m%d-%H%M%S)"
+    
+    - name: set env
+      run: |
+        echo "GITHUB_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
+        echo "DATE=${{ steps.date.outputs.date }}" >> $GITHUB_ENV
+    - name: Contributors
+      run: bash ks_new_contributors.sh
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ks_new_contributors_${{ steps.date.outputs.date }}
+        path: ./ks_new_contributors_20*.txt

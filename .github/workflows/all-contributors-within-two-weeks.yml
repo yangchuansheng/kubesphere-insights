@@ -46,10 +46,10 @@ jobs:
        USER_PASS: ${{ secrets.USER_PASS }}
         
     - name: Contributors
-      run: bash ks_new_contributors.sh
+      run: bash ks_all_contributors_within_two_weeks.sh
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ks_new_contributors_${{ steps.date.outputs.date }}
-        path: ./ks_new_contributors_20*.txt
+        name: ks_all_contributors_within_two_weeks_${{ steps.date.outputs.date }}
+        path: ./ks_all_contributors_within_two_weeks_20*.txt
